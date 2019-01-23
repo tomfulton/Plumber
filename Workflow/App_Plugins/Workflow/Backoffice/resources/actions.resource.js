@@ -12,6 +12,8 @@
 
         // display notification after actioning workflow task
         const notify = (d, fromDash, id) => {
+            $rootScope.$emit('workflowActioned');
+
             if (d.status === 200) {
 
                 notificationsService.success('SUCCESS', d.message);
@@ -19,7 +21,6 @@
                 if (fromDash) {
                     $rootScope.$emit('refreshWorkflowDash');
                 }
-                $rootScope.$emit('workflowActioned');
                 buttonState('success', id);
             } else {
                 notificationsService.error('OH SNAP', d.data.ExceptionMessage);
