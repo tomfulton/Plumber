@@ -19,6 +19,7 @@ namespace Workflow.Helpers
         private readonly IUserService _userService;
         private readonly IContentTypeService _contentTypeService;
         private readonly IContentService _contentService;
+        private readonly ILocalizedTextService _textService;
         private readonly IPocoRepository _pocoRepo;
 
         public Utility() : this(
@@ -26,19 +27,26 @@ namespace Workflow.Helpers
             ApplicationContext.Current.Services.UserService,
             ApplicationContext.Current.Services.ContentTypeService,
             ApplicationContext.Current.Services.ContentService,
+            ApplicationContext.Current.Services.TextService,
             UmbracoContext.Current)
         {
         }
         
-        public Utility(IPocoRepository pocoRepo, IUserService userService, IContentTypeService contentTypeService, IContentService contentService, UmbracoContext context)
+        public Utility(IPocoRepository pocoRepo, IUserService userService, IContentTypeService contentTypeService, IContentService contentService, ILocalizedTextService textService, UmbracoContext context)
         {
             _context = context;
 
             _userService = userService;
             _contentTypeService = contentTypeService;
             _contentService = contentService;
+            _textService = textService;
 
             _pocoRepo = pocoRepo;
+        }
+
+        public string GetText(string key)
+        {
+            return _textService.Localize(key);
         }
 
         /// <summary>
