@@ -65,5 +65,12 @@
         <key alias="notConfigured">Workflow not configured</key>
         <key alias="notConfiguredDescription">Please ensure a workflow has been set on the content nodes listed below:</key>
 
+        <!-- email -->
+        <key alias="emailApprovalRequest"><![CDATA[Dear {0},<br/><br/>Please review the following page for {5} approval: <a href="{1}">{2}</a><br/><br/>Comment: {3}<br/><br/>{6}Thanks,<br/>{4}]]></key>
+        <key alias="emailApproved"><![CDATA[Dear {0},<br/><br/>The following document's workflow has been approved and the document {3}: <a href="{1}">{2}</a><br/>]]></key>
+        <key alias="emailRejected"><![CDATA[Dear {0},<br/><br/>The {5} workflow was rejected by {4}: <a href="{1}">{2}</a><br/><br/>Comment: {3}]]></key>
+        <key alias="emailCancelled"><![CDATA[Dear {0},<br/><br/>{1} workflow has been cancelled for the following page: <a href="{2}">{3}</a> by {4}.<br/><br/>Reason: {5}.]]></key>
+        <key alias="emailOfflineApproval"><![CDATA[<a href="{0}/workflow-preview/{1}/{2}/{3}/{4}">Offline approval</a> is permitted for this change (no login required).<br/><br/>]]></key>
+        <key alias="emailBody"><![CDATA[<!DOCTYPE HTML SYSTEM><html><head><title>{0}</title></head><body><font face="verdana" size="2">{1}</font></body></html>]]></key>
     </area>
 </language>

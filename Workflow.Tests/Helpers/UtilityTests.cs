@@ -21,6 +21,7 @@ namespace Workflow.Tests.Helpers
         private readonly WorkflowUtility _utility;
         private readonly IContentService _contentService;
         private readonly IContentTypeService _contentTypeService;
+        private readonly ILocalizedTextService _textService;
         private readonly IConfigService _configService;
 
         public UtilityTests()
@@ -32,6 +33,7 @@ namespace Workflow.Tests.Helpers
 
             _contentService = ApplicationContext.Current.Services.ContentService;
             _contentTypeService = ApplicationContext.Current.Services.ContentTypeService;
+            _textService = ApplicationContext.Current.Services.TextService;
             _configService = new ConfigService();
 
             _utility = new WorkflowUtility(
@@ -39,6 +41,7 @@ namespace Workflow.Tests.Helpers
                 ApplicationContext.Current.Services.UserService,
                 _contentTypeService,
                 _contentService,
+                _textService,
                 UmbracoContext.Current);
         }
 
